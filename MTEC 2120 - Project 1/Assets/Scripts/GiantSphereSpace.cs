@@ -18,7 +18,13 @@ public class GiantSphereSpace : MonoBehaviour
     {
         if (Input.GetAxis("Mouse X") != 0)
         {
-            
+            LookAngle.y += Input.GetAxis("Mouse X");
         }
+        if (Input.GetAxis("Mouse Y") != 0)
+        {
+            LookAngle.x += Input.GetAxis("Mouse Y");
+        }
+
+        transform.rotation = Quaternion.Euler(LookAngle);
     }
 }
