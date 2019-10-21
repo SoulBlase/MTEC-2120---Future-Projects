@@ -14,6 +14,7 @@ public class ObjectInteractionScript : MonoBehaviour
 
     private Vector3 offset;
     private Vector3 scaling;
+    private Vector3 rotating;
 
     public float Timer;
     private bool IsTrue;
@@ -24,6 +25,7 @@ public class ObjectInteractionScript : MonoBehaviour
         NewRigid = GetComponent<Rigidbody>();
         offset = ReferenceObject2.transform.position;
         scaling = ReferenceObject2.transform.localScale;
+        
         IsTrue = true;
     }
 
@@ -31,7 +33,9 @@ public class ObjectInteractionScript : MonoBehaviour
     void Update()
     {
         ReferenceObject.transform.position = Vector3.down * Time.time;
-        NewRigid.AddForce(Vector3.up * Time.time);
+
+
+        transform.rotation = Quaternion.Euler(rotating);
         
         if (IsTrue)
         {
