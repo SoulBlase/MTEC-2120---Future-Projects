@@ -8,7 +8,7 @@ public class CubeBehaviorScript : MonoBehaviour
     Rigidbody SomeRigidbody;
     Vector3 PositionOffset;
 
-    private bool correct;
+    private bool correct = true;
     private bool My_Play;
 
     AudioSource My_AudioSource;
@@ -23,7 +23,7 @@ public class CubeBehaviorScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (SomeObject == correct)
+        if (correct)
         {
             SomeObject.transform.position = new Vector3(0, Mathf.Sin(Time.time) * 10, 0) + PositionOffset;
             if (Input.GetKeyDown(KeyCode.Space))
